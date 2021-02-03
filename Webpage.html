@@ -82,6 +82,13 @@
 							<a class="nav-link ms-3 my-1" href="#item-6-6">Forms</a>
 						</nav>
 						<a href="#item-7" class="nav-link" style="background-color:black;color:red;">CSS3</a>
+						<nav class="nav nav-pills flex-column">
+							<a class="nav-link ms-3 my-1" href="#item-7-1">Rules</a>
+							<a class="nav-link ms-3 my-1" href="#item-7-2">Writing CSS</a>
+							<a class="nav-link ms-3 my-1" href="#item-7-3">Types of Selectors</a>
+							<a class="nav-link ms-3 my-1" href="#item-7-4">Font</a>
+							
+						</nav>
 						</nav>
 					</div>
 				  </div>
@@ -343,13 +350,69 @@
 						</p>
 						<h4 id="item-7">CSS3</h4>
 						<P>
-							<img src="Image/logo-CSS.png" class="img-thumbnail" alt="CSS logo">
+							<img src="Image/logo-CSS.png" class="img-thumbnail" alt="CSS logo" height="50%" width="50%">
+							<ul>
+								<li> You are CSS to my HTML.</li>
+								<li> You are style to my life.</li>
+								<li> Using CSS, we can determine the visual appearance of our HTML elements independent of the HTML itself.</li>
 
-							
-
+							</ul>
 						</P>
+						<h5 id="item-7-1">Rules</h5>
+						<p>
+							At its simplest, CSS is just a list of rules.  Each rule consists of a selector and a declaration.  Here is an example:
+							<img src="Image/select-declare.jpg" class="img-thumbnail" alt="CSS logo" height="50%" width="50%">
+							<h6>Selector</h6>
+							In the above, the selector is p.  When a selector appears unprefixed by any punctuation, then it is assumed to match to an HTML tag.  Thus, the pselector will apply the CSS rule to all <p> tags in the document. 
+							We will cover more selector possibilities in the future.
+							Declaration <br>
+							The declaration part of a CSS rule opens and closes with curly braces: {  }  
+							And between them, you can put any number of property value pairs.
+							<h6>Properties and Values</h6>
+							There are hundreds of different visual properties that may be set via CSS.  And each property has a range of possible values that it can be set to.  Syntactically, property value pairs are simple. Each pair consists of a property, followed by a colon : followed by a value and terminated by a semi-colon ; 
+							font-size: 12px; <br>
+							<h6>Best practice</h6>
+							In the example above, the entire CSS rule is written on one line.  This is not uncommon when the declaration of the CSS rule only has one property.  If a CSS rule has several properties, then it should be written to use one line per property value pair. For example:
+							<br>
+							<code>
+							p {
+							   	font-size: 12px;
+							  	line-height: 15px;
+							   	color: #223344;
+							 }
+							</code>
+						</p>
+						<h5 id="item-7-2">Writing CSS</h5>
+						<p>
+							<h6>Inline CSS</h6>
+							Using an inline style is one of the ways to insert a style sheet. With an inline style, a unique style is applied to a single element.
+							In order to use an inline style, add the style attribute to the relevant tag.
+							<img src="Image/inline.png" class="img-thumbnail" alt="CSS logo" >
+							<h6>Embedded/Internal CSS</h6>
+							Internal styles are defined within the &lt;style&gt; element, inside the head section of an HTML page.
+							<img src="Image/internal.png" class="img-fluid" alt="Responsive image">
+						</p>
+						<h5 id="item-7-3">Types of Selectors</h5>
+						<p>
+							<h6>Tag selector</h6>
+							We've already seen this one. A CSS selector that consists solely of a single tag (without punctuation or spacing) will be applied to any matching tag on the page.
+							<code>li { list-style-type: circle; }</code> <br>
+							<h6>id selector #</h6>
+							You may remember the id attribute (short for "identifier"). This attribute can be applied to an HTML tag to uniquely identify the element. Recall that the value for any given id attribute can only appear once in a document. No two tags are allowed to have the same id. You may also recall that the id cannot contain spaces, nor most punctuation, nor begin with numbers.
+							In the HTML below, there are two paragraph tags. So, to style them individually, we can apply unique id attributes to the paragraphs (id="p18"and id="p19"). In the CSS, we will use the id selector.  The id selector is simply a hash sign (#) followed directly by the id.
+							<h6>Class selector (dot)</h6>
+							The class attribute is similar to the id. However, whereas the id must be unique and singular, the values of the class attribute can be shared by multiple tags. And, multiple classes can be assigned to a tag by simply separating them with spaces.  
+							<img src="Image/selector.png" class="img-fluid" alt="Responsive image">
+						</p>
+						<h5 id="item-7-4">Fonts</h5>
+						<p>
+							<img src="Image/font.png" class="img-fluid" alt="Responsive image">
+							
+						</p>
+
+						
+						
                     </div>
-                 
                 </div>
                 </div>
               </div>
