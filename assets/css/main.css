@@ -2823,4 +2823,7 @@ body.is-menu-visible #menu {
   visibility: visible; }
 
 /* ----------------------------------------------------------------------- */
- 
+.sticky-top {
+  max-height: 100vh;
+  overflow: auto;
+}
