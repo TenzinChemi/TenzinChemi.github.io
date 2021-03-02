@@ -79,7 +79,15 @@
 							<a class="nav-link ms-3 my-1" href="#item-9-4">Switch</a>
 							<a class="nav-link ms-3 my-1" href="#item-9-5">Logical Operator</a>
 						</nav>
-
+                        <a href="#item-10" class="nav-link">Loops</a>
+                        <nav class="nav nav-pills flex-column">
+							<a class="nav-link ms-3 my-1" href="#item-10-1">While Loop</a>
+							<a class="nav-link ms-3 my-1" href="#item-10-2">Do-While Loop</a>
+                            <a class="nav-link ms-3 my-1" href="#item-10-3">Break&Continue</a>
+							<a class="nav-link ms-3 my-1" href="#item-10-4">For Loop</a>
+						</nav>
+                        
+                        
 						
 						</nav>
 					</div>
@@ -575,6 +583,161 @@
                                 </code>
                             </pre>
                        </p>
+                       <h4 id="item-10"> Loops </h4>
+                       <br>
+                       <p>Executing one or more statements up to a desired number of times.</p>
+                       <h4 id="item-10-1"> The while Loop </h4>
+                       <p>The while statement is called a loop structure because it executes statements repeatedly while an expression is true, looping over and over again. It takes the form
+                        <pre>
+                            <code>
+                                while (expression) {
+                                    statements
+                                    }
+                                    
+                            </code>
+                        </pre>
+                        The expression evaluates to either true or false, and statements can be a single statement or, more commonly, a code block enclosed by curly braces { }.
+                        The while loop evaluates a condition before the loop is entered, making it possible that the while statements never execute.
+                        </p>
+                        <h5>Example</h5>
+                        <p>
+                            <pre>
+                                <code>
+                                    #include &lt;stdio.h&gt;
+                                        int main() {
+                                        int count = 1;
+                                        while (count < 8) {
+                                        printf("Count = %d\n", count);
+                                        count++;
+                                        }
+                                        return 0;
+                                        }
+                                </code>
+                            </pre>
+                        </p>
+                        <strong>
+                            An infinite loop is one that continues indefinitely because the loop condition never evaluates to false. This may cause a run-time error.
+                        </strong>
+                        <h4 id="item-10-2"> Do while Loop </h4>
+                        <p>
+                            The do-while loop executes the loop statements before evaluating the expression to determine if the loop should be repeated.
+                            It takes the form:
+                            <pre>
+                                <code>
+                                    do {
+                                        statements
+                                        } while (expression);
+                                       
+                                </code>
+                            </pre>
+                            The expression evaluates to either true or false, and statements can be a single statement or a code block enclosed by curly braces { }.
+                            Example:
+                            <pre>
+                                <code>
+                                    #include &lt;stdio.h&gt;
+                                    int main() {
+                                        int count = 1;
+                                        do {
+                                            printf("Count = %d\n", count);
+                                            count++;
+                                        } while (count < 8);
+                                        return 0;
+                                    }
+                                </code>
+                            </pre>
+                            <strong>Note the semicolon after the while statement.
+                                The do-while loop always executes at least once, even if the expression evaluates to false.</strong>
+                        </p>
+                        <h4 id="item-10-3"> Break and Continue </h4>
+                        <p>The break statement was introduced for use in the switch statement. It is also useful for immediately exiting a loop.
+                            For example, the following program uses a break to exit:
+                            <pre>
+                                <code>
+                                    #include&lt;stdio.h&gt;
+                                        int main(){
+                                            int num = 5;
+                                            while (num > 0) {
+                                            if (num == 3)
+                                            break;
+                                            printf("%d\n", num);
+                                            num--;
+                                            }
+                                            return 0;
+                                        }
+                                </code>
+                            </pre>
+                            When you want to remain in the loop, but skip ahead to the next iteration, you use the continue statement.
+                            For example:
+                            <pre>
+                                <code>
+                                    #include&lt;stdio.h&gt;
+                                    int main(){
+                                        int num = 5;
+                                        while (num > 0) {
+                                            num--;
+                                            if (num == 3)
+                                            continue;
+                                            printf("%d\n", num);
+                                        }
+                                        return 0;
+                                    }
+                                </code>
+                            </pre>
+                        </p>
+                        <h4 id="item-10-4"> For Loop </h4>
+                        <p>
+                            The for statement is a loop structure that executes statements a fixed number of times.
+                            It takes the form:
+                            <pre>
+                                <code> 
+                                for (initvalue; condition; increment) {
+                                    statements;
+                                }
+                               </code>
+                            </pre>
+                            The initvalue is a counter set to an initial value. This part of the for loop is performed only once.
+                            The condition is a Boolean expression that compares the counter to a value after each loop iteration, stopping the loop when false is returned.
+                            The increment increases (or decreases) the counter by a set value.
+                            <br>
+                            For example, the program below displays 0 through 9:
+                            <pre>
+                                <code>
+                                    #include&lt;stdio.h&gt;
+                                    int main(){
+                                        int i;
+                                        int max = 10;
+                                        for (i = 0; i < max; i++) {
+                                        printf("%d\n", i);
+                                        }
+                                        return 0;
+                                    }
+                                </code>
+                            </pre>
+                            Loops can also be nested.
+                            When writing a program this way, there is an outer loop and an inner loop. For each iteration of the outer loop the inner loop repeats its entire cycle.
+                            <br>
+                            In the following example, nested for loops are used to output a multiplication table:
+                            <pre>
+                                <code>
+                                    #include&lt;stdio.h&gt;
+                                    int main(){
+                                        int i, j;
+                                        int table = 10;
+                                        int max = 12;
+                                        for (i = 1; i <= table; i++) {
+                                            for (j = 0; j <= max; j++) {
+                                                printf("%d x %d = %d\n", i, j, i*j);
+                                            }
+                                            printf("\n"); /* blank line between tables */ 
+                                        }
+                                        return 0;
+                                    }
+                                </code>
+                            </pre>
+                        </p>
+
+                        
+                       
 
                         
 						
