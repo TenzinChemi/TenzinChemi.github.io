@@ -87,12 +87,20 @@
 							<a class="nav-link ms-3 my-1" href="#item-10-4">For Loop</a>
 						</nav>
                         
-                        <a href="#item-11" class="nav-link">Array</a> <br>
+                        <a href="#item-11" class="nav-link">Array</a> 
                         <a href="#item-12" class="nav-link">Function</a>
                         <nav class="nav nav-pills flex-column">
 							<a class="nav-link ms-3 my-1" href="#item-12-1">Function Parameter</a>
 							<a class="nav-link ms-3 my-1" href="#item-12-2">Recursive Function</a>
 						</nav>
+                        <a href="#item-13" class="nav-link">Pointer</a>
+                        <nav class="nav nav-pills flex-column">
+							<a class="nav-link ms-3 my-1" href="#item-13-1">Function Pointer</a>
+							<a class="nav-link ms-3 my-1" href="#item-13-2">Void Pointer</a>
+						</nav>
+
+                        
+                        
                         
 					</div>
 				  </div>
@@ -848,8 +856,356 @@
                         </p>    
                         
                         <h4 id="item-12-1"> Function Parameter</h4>                    
+                        <p>
+                            A function's parameters are used to receive values required by the function. Values are passed to these parameters as arguments through the function call.
+                            <br>
+                            By default, arguments are passed by value, which means that a copy of data is given to the parameters of the called function. The actual variable isn't passed into the function, so it won't change.
+                            <br>
+                            Arguments passed to a function are matched to parameters by position. Therefore, the first argument is passed to the first parameter, the second to the second parameter, and so on.
+                            <br>
+                            The following program demonstrates parameters passed by value:
+                            <pre>
+                                <code>
+                                        #include &lt;stdio.h&gt;
+                                        #include &lt;conio.h&gt;
+                                        int sum_up (int x, int y); 
+                                        int main() {
+                                            int x, y, result;
+                                            x = 3;
+                                            y = 12;
+                                            result = sum_up(x, y);
+                                            printf("%d + %d\ = %d\n", x, y, result);
+                                            getch();
+                                            clrscr();
+                                            return 0;
+                                        }
+                                        int sum_up (int x, int y) { 
+                                            x += y;
+                                            return(x); 
+                                       }
+                                            
+                                        
+                                </code>
+                                The program output is: 3 + 12 = 15 <br>
+                                The values of x and y were passed to sum_up. Note that even though the value of parameter x was changed in sum_up, the value of argument x in main() was not changed because only its value was passed into the parameter x.
 
+                            </pre>
+                        </p>
+                        <h4 id="item-12-2"> Recursive Functions </h4>                    
+                        <p>
+                            An algorithm for solving a problem may be best implemented using a process called recursion. 
+                            Consider the factorial of a number, which is commonly written as 5! = 5 * 4 * 3 * 2 * 1. <br>
+                            This calculation can also be thought of as repeatedly calculating num * (num -1) until num is 1. <br>
+                            A recursive function is one that calls itself and includes a base case, or exit condition, for ending the recursive calls. In the case of computing a factorial, the base case is num equal to 1. <br>
+                            <pre>
+                                <code>
+                                    #include &lt;stdio.h&gt;
+                                    #include &lt;conio.h&gt;
+                                    //function declaration
+                                    int factorial(int num);
 
+                                    int main() {
+                                        int x = 5;
+                                        printf("The factorial of %d is %d\n", x, factorial(x));
+                                        getch();
+                                        clrscr();
+                                        return 0;
+                                    }
+
+                                    //function definition
+                                    int factorial(int num) {
+                                        if (num == 1) /* base case */
+                                            return (1);
+                                        else
+                                            return (num * factorial(num - 1));
+                                    }
+
+                                </code>
+                            </pre>
+
+                        </p>
+                        <h4 id="item-13"> Pointer </h4>
+                        <p>
+                            Using Memory <br>
+                            C is designed to be a low-level language that can easily access memory locations and perform memory-related operations. <br> 
+                            For instance, the scanf() function places the value entered by the user at the location, or address, of the variable. This is accomplished by using the <b>&</b> symbol. <br>
+                            The following program displays the memory addresses for variables i and k: <br>
+                            <pre>
+                                <code>
+                                    #include &lt;stdio.h&gt;
+                                    #include &lt;conio.h&gt;
+                                    void test(int k);
+                                    int main() {
+                                        int i = 0;
+                                        printf("The address of i is %x\n", &i);
+                                        test(i);
+                                        printf("The address of i is %x\n", &i);
+                                        test(i);
+                                        getch();
+                                        clrscr();
+                                        return 0;
+                                    }
+                                    
+                                    void test(int k) {
+                                        printf("The address of k is %x\n", &k);
+                                    }
+                                </code>
+                            </pre>
+                           <h5>What is a Pointer?</h5> 
+                                Pointers are very important in C programming because they allow you to easily work with memory locations.
+                                They are fundamental to arrays, strings, and other data structures and algorithms.
+                                A pointer is a variable that contains the address of another variable. In other words, it "points" to the location assigned to a variable and can indirectly access the variable.
+                                Pointers are declared using the * symbol and take the form: <br>
+                                <strong>pointer_type *identifier </strong> 
+
+                                pointer_type is the type of data the pointer will be pointing to. The actual pointer data type is a hexadecimal number, but when declaring a pointer, you must indicate what type of data it will be pointing to.
+                                Asterisk * declares a pointer and should appear next to the identifier used for the pointer variable. <br>
+                                The following program demonstrates variables, pointers, and addresses: <br>
+                                <pre>
+                                    <code>
+                                        #include &lt;stdio.h&gt;
+                                        #include &lt;conio.h&gt;
+                                        int main() {
+                                            int j = 63;
+                                            int *p = NULL;
+                                            p = &j; 
+                                            printf("The address of j is %x\n", &j);
+                                            printf("p contains address %x\n", p);
+                                            printf("The value of j is %d\n", j);
+                                            printf("p is pointing to the value %d\n", *p); 
+                                            getch();
+                                            clrscr();
+                                            return 0;
+                                        }
+                                    </code>
+                                </pre>
+                                <strong>
+                                    There are several things to notice about this program:
+                                    <ul>
+                                        <li>Pointers should be initialized to NULL until they are assigned a valid location.</li> 
+                                        <li>Pointers can be assigned the address of a variable using the ampersand & sign.</li> 
+                                        <li>To see what a pointer is pointing to, use the * again, as in *p. In this case the * is called the indirection or dereference operator. The process is called dereferencing.</li>
+                                    </ul>
+                                  
+                                </strong>
+                                Pointers in Expressions <br>
+                                Pointers can be used in expressions just as any variable. Arithmetic operators can be applied to whatever the pointer is pointing to. <br>
+                                <pre>
+                                    <code>
+                                        #include &lt;stdio.h&gt;
+                                        #include &lt;conio.h&gt;
+                                        int main() {
+                                            int x = 5;
+                                            int y;
+                                            int *p = NULL;
+                                            p = &x;
+                                            y = *p + 2; /* y is assigned 7 */
+                                            y += *p; /* y is assigned 12 */
+                                            *p = y; /* x is assigned 12 */
+                                            (*p)++; /* x is incremented to 13 */
+                                            printf("p is pointing to the value %d\n", *p); 
+                                            getch();
+                                            clrscr();
+                                            return 0;
+                                        }
+                                    </code>
+                                </pre>
+                                Pointers and Arrays
+                                Pointers are especially useful with arrays. An array declaration reserves a block of contiguous memory addresses for its elements. With pointers, we can point to the first element and then use address arithmetic to traverse the array: <br>
+                                + is used to move forward to a memory location <br>
+                                - is used to move backward to a memory location <br>
+                                <pre>
+                                    <code>
+                                        #include &lt;stdio.h&gt;
+                                        #include &lt;conio.h&gt;
+                                        int main() {
+                                            int a[5] = {22, 33, 44, 55, 66};
+                                            int *ptr = NULL;
+                                            int i;
+                                            ptr = a;
+                                            for (i = 0; i < 5; i++) {
+                                            printf("%d ", *(ptr + i));
+                                            }
+                                            getch();
+                                            clrscr();
+                                            return 0;
+                                        }
+                                    </code>
+                                </pre>
+                                An important concept with arrays is that an array name acts as a pointer to the first element of the array. Therefore, the statement ptr = a can be thought of as ptr = &a[0]. <br>
+                                Consider the following statement, which prints the first element of the array: printf("%d ", *a); <br>
+                                <h5>Pointers and Functions</h5> 
+                                Pointers greatly expand the possibilities for functions. No longer are we limited to returning one value. With pointer parameters, your functions can alter actual data rather than a copy of data.
+                                To change the actual values of variables, the calling statement passes addresses to pointer parameters in a function. <br>
+                                For example, the following program swaps two values: <br>
+                                <pre>
+                                    <code>
+                                        #include &lt;stdio.h&gt;
+                                        #include &lt;conio.h&gt;
+                                        void swap(int *num1,int *num2);
+                                        int main() {
+                                            int x = 25;
+                                            int y = 100;
+                                            printf("x is %d, y is %d\n", x, y); 
+                                            swap(&x, &y);
+                                            printf("x is %d, y is %d\n", x, y); 
+                                            getch();
+                                            clrscr();
+                                            return 0;
+                                        }
+                                        void swap (int *num1, int *num2) {
+                                            int temp;
+                                            temp = *num1;
+                                            *num1 = *num2;
+                                            *num2 = temp;
+                                            }
+                                            
+                                    </code>
+                                    The program swaps the actual values of the variables, as the function accesses them by address using pointers.
+                                </pre>
+                                Functions with Array Parameters <br>
+                                An array cannot be passed by value to a function. However, an array name is a pointer, so just passing an array name to a function is passing a pointer to the array.
+                                <br>
+                                Consider the following program: <br>
+                                <pre>
+                                    <code>
+                                        #include &lt;stdio.h&gt;
+                                        #include &lt;conio.h&gt;
+                                        int add_up (int *a, int num_elements);
+                                        int main() {
+                                            int orders[5] = {100, 220, 37, 16, 98};
+                                            printf("Total orders is %d\n", add_up(orders, 5)); 
+                                            getch();
+                                            clrscr();
+                                            return 0;
+                                        }
+
+                                        int add_up (int *a, int num_elements) {
+                                            int total = 0;
+                                            int k;
+                                            for (k = 0; k < num_elements; k++) {
+                                            total += a[k];
+                                            }
+                                            return (total);
+                                        }
+                                    </code>
+                                </pre>
+                        </p>
+                        <h4 id="item-13-1"> Function Pointer </h4>
+                        <p>
+                            Since pointers can point to an address in any memory location, they can also point to the start of executable code.
+                            <br>
+                            Pointers to functions, or function pointers, point to executable code for a function in memory. Function pointers can be stored in an array or passed as arguments to other functions.
+                            <br>
+                            A function pointer declaration uses the * just as you would with any pointer:return_type (*func_name)(parameters) 
+                            <br>
+                            The parentheses around (*func_name) are important. Without them, the compiler will think the function is returning a pointer.
+                            <br>
+                            After declaring the function pointer, you must assign it to a function. The following short program declares a function, declares a function pointer, assigns the function pointer to the function, and then calls the function through the pointer:
+                            <br>
+                            <pre>
+                                <code>
+                                        #include &lt;stdio.h&gt;
+                                        #include &lt;conio.h&gt;
+                                        int main() {
+                                            void (*funptr)(int); /* function pointer */
+                                            funptr = say_hello; /* pointer assignment */
+                                            funptr(3); /* function call */
+                                            getch();
+                                            clrscr();
+                                            return 0;
+                                            }
+
+                                            void say_hello(int num_times) {
+                                            int k;
+                                            for (k = 0; k < num_times; k++)
+                                            printf("Hello\n");
+                                            }
+                                </code>
+                            </pre>
+                            Array of Function Pointers <br>
+                            An array of function pointers can replace a switch or an if statement for choosing an action, as in the following program:
+                            <br>
+                            <pre>
+                                <code>
+                                    #include &lt;stdio.h &gt;                                    
+                                    #include &lt;conio.h &gt;
+
+                                    int add(int num1, int num2);
+                                    int subtract(int num1, int num2);
+                                    int multiply(int num1, int num2);
+                                    int divide(int num1, int num2);
+                            
+                                    int main() 
+                                    {
+                                        int x, y, choice, result;
+                                        int (*op[4])(int, int);
+                                        
+                                        op[0] = add;
+                                        op[1] = subtract;
+                                        op[2] = multiply;
+                                        op[3] = divide;
+                                        printf("Enter two integers: ");
+                                        scanf("%d%d", &x, &y);
+                                        printf("Enter 0 to add, 1 to subtract, 2 to multiply, or 3 to divide: ");
+                                        scanf("%d", &choice);
+                                        result = op[choice](x, y);
+                                        printf("%d", result);
+                                        getch();
+                                        clrscr();
+                                        return 0;
+                                    }
+                                    int add(int x, int y) {
+                                        return(x + y);
+                                        }
+                                        
+                                    int subtract(int x, int y) {
+                                        return(x - y);
+                                    }
+                                    
+                                    int multiply(int x, int y) {
+                                        return(x * y);
+                                    }
+                                    
+                                    int divide(int x, int y) {
+                                        if (y != 0)
+                                            return (x / y);
+                                        else
+                                            return 0;
+                                    }
+                                    
+                                </code>
+                            </pre>
+                        </p>
+                        <h4 id="item-13-2"> Void Pointer </h4>
+                        <p>
+                            <strong>void *ptr;</strong>
+                            <pre>
+                                <code>
+                                        #include &lt;stdio.h&gt;
+                                        #include &lt;conio.h&gt;
+                                        int add_up (int *a, int num_elements);
+                                        int main() {
+                                            int x = 33;
+                                            float y = 12.4;
+                                            char c = 'a';
+                                            void *ptr;
+                                            ptr = &x;
+                                            printf("void ptr points to %d\n", *((int *)ptr));
+                                            ptr = &y;
+                                            printf("void ptr points to %f\n", *((float *)ptr));
+                                            ptr = &c;
+                                            printf("void ptr points to %c", *((char *)ptr));
+
+                                            getch();
+                                            clrscr();
+                                            return 0;
+                                        }
+                                </code>
+                            </pre>
+                        </p>
+                        
+                        
 
                         
 						
